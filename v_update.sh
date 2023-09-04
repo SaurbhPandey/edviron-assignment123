@@ -32,7 +32,7 @@ else
     # CURRENT_COMMIT=$(git rev-parse HEAD)
 
     # Check if changes have been made
-    # if ! git diff --quiet master; then
+    if ! git diff --quiet master; then
         # Changes detected
         # Commit
         git add .
@@ -45,9 +45,9 @@ else
         # git push --set-upstream origin new-branch
 
       
-    # else
-    #     git checkout master
-    #     git branch -D $NEW_BRANCH_NAME
-    #     echo "No changes detected. Pull request will not be created."
-    # fi
+    else
+        git checkout master
+        git branch -D $NEW_BRANCH_NAME
+        echo "No changes detected. Pull request will not be created."
+    fi
 fi
